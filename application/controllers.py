@@ -1,6 +1,7 @@
-from flask import Flask, request
+from flask import Flask, request, redirect
 from flask import render_template
 from flask import current_app as app
+from application.models import *
 
 @app.route("/", methods=["GET", "POST"])
 def index():    
@@ -8,15 +9,33 @@ def index():
 
 # login controllers
 @app.route("/login", methods=["GET", "POST"])
-def login():    
-    return render_template("login.html")
+def login():  
+    if request.method == "GET":    
+        return render_template("login.html")
+
+    user = User.query.filter_by(email=request.form['email']).first()
+    
+    if user and user.password==request.form['password']:
+        return redirect("/userdashboard",200)
+    return "worng password or user not exist"
 
 # signup controllers
 @app.route("/signup", methods=["GET", "POST"])
-def signup():    
-    return render_template("signup.html")
-
-@app.route("/articles_by/<user_name>", methods=["GET", "POST"])
-def articles_by_author(user_name):
-    articles = Article.query.filter(Article.authors.any(username=user_name))
-    return render_template("articles_by_author.html", articles=articles, username=user_name)
+def signup():
+    try:
+        # If request type is get render and return signup form
+        if request.method == "GET":
+            return render_template("signup.html")
+        
+        # 
+        user=User()
+        user.name=request.form['name']
+        user.email=request.form['email']
+        user.password=request.form['password']
+        user.type=1
+        db.session.add(user)
+        db.session.commit()
+        return redirect("/login",200)
+    except:
+        return render_template('403.html'), 403
+    
