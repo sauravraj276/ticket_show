@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/custom_validations.js') }}"
+    ></script>
+
+    <link rel="icon" type="image/x-icon" href=".assets/img/favicon.ico" />
+    <title>login_signup</title>
+  </head>
+  <body>
+    <div
+      class="d-flex flex-column align-items-center justify-content-center"
+      style="height: 100vh; border: red solid 2px"
+    >
+      <div class="m-2">
+        <h2>Signup</h2>
+      </div>
+      <form
+        class="p-4 d-flex flex-column justify-content-around"
+        style="height: 50vh; width: 350px; border: blue solid 2px"
+      >
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <!-- <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div> -->
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <!-- <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Check me out</label
+          >
+        </div> -->
+        <div class="d-flex justify-content-around">
+          <button type="submit" class="btn btn-primary w-100 m-2">
+            Register
+          </button>
+        </div>
+      </form>
+      <div>
+        <span>Already have an account </span>
+        <a href="/login"
+          ><button class="btn-sm btn-success">Login</button>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
