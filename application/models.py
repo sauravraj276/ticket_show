@@ -7,6 +7,18 @@ class User(db.Model):
     email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
     type = db.Column(db.Integer, nullable=False)
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):   
+        return True           
+
+    def is_anonymous(self):
+        return False          
+
+    def get_id(self):         
+        return str(self.email)
+
     
 class Show(db.Model):
     __tablename__ = 'show'
