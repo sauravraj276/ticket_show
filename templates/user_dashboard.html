@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/custom_validations.js') }}"
+    ></script>
+    <title>User_dashboard</title>
+  </head>
+  <body>
+    <div class="d-flex flex-column overflow-auto" style="height: 100vh">
+      <!-- navbar -->
+      <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-primary p-2">
+        <div class="order-0">
+          <a class="navbar-brand" href="#">{{current_user.name}}'s Dashboard</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target=".dual-collapse2"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-2 dual-collapse2">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile |</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/bookings">bookings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout">logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div
+        class="d-flex flex-column align-items-center justify-content-evenly m-1"
+        style="flex: 1 1 auto; flex-wrap: wrap"
+      >
+        <div
+          class="d-flex flex-column align-items-center justify-content-around m-3 p-2 overflow-auto"
+          style="
+            width: 97vw;
+            border: blue solid 2px;
+            border-radius: 10px;
+            background-color: aliceblue;
+            flex-wrap: wrap;
+          "
+        >
+          <h4 style="align-self: flex-start">Venue_01</h4>
+          <div 
+          class="d-flex flex-row align-items-center justify-content-around overflow-auto"
+          style="
+            flex-wrap: wrap;
+          ">
+          <div
+              class="card mt-2"
+              style="
+                background-image: url('./assets/img/movie_thumb.jpg');
+                background-size: contain;
+                color: aliceblue;
+                height: 220px;
+                width: 230px;
+              "
+            >
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                
+              <button class="btn btn-primary btn-block btn-lg">Book</button>
+              </div>
+            </div>
+            <div
+              class="mt-2 p-2 d-flex flex-column justify-content-evenly"
+              style="
+                height: 200px;
+                width: 230px;
+                border: cornflowerblue solid 1px;
+                background-color: white;
+              "
+            >
+              <h5 style="align-self: flex-start">Show_01</h5>
+              <button class="btn btn-primary">Book</button>
+            </div>
+            <div
+              class="mt-2 p-2 d-flex flex-column justify-content-evenly"
+              style="
+                height: 200px;
+                width: 230px;
+                border: cornflowerblue solid 1px;
+                background-color: white;
+              "
+            >
+              <h5 style="align-self: flex-start">Show_01</h5>
+              <button class="btn btn-primary">Book</button>
+            </div>
+            <div
+              class="mt-2 p-2 d-flex flex-column justify-content-evenly"
+              style="
+                height: 200px;
+                width: 230px;
+                border: cornflowerblue solid 1px;
+                background-color: white;
+              "
+            >
+              <h5 style="align-self: flex-start">Show_01</h5>
+              <button class="btn btn-primary">Book</button>
+            </div>
+            <div
+              class="mt-2 p-2 d-flex flex-column justify-content-evenly"
+              style="
+                height: 200px;
+                width: 230px;
+                border: cornflowerblue solid 1px;
+                background-color: white;
+              "
+            >
+              <h5 style="align-self: flex-start">Show_01</h5>
+              <button class="btn btn-primary">Book</button>
+            </div>
+            <div
+              class="mt-2 p-2 d-flex flex-column justify-content-evenly"
+              style="
+                height: 200px;
+                width: 230px;
+                border: cornflowerblue solid 1px;
+                background-color: white;
+              "
+            >
+              <h5 style="align-self: flex-start">Show_01</h5>
+              <button class="btn btn-primary">Book</button>
+            </div>
+            <div
+              class="mt-2 p-2 d-flex flex-column justify-content-evenly"
+              style="
+                height: 200px;
+                width: 230px;
+                border: cornflowerblue solid 1px;
+                background-color: white;
+              "
+            >
+              <h5 style="align-self: flex-start">Show_01</h5>
+              <button class="btn btn-primary">Book</button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="d-flex flex-column align-items-center justify-content-around m-3 p-2 overflow-auto"
+          style="
+            height: 40vh;
+            width: 97vw;
+            border: blue solid 2px;
+            border-radius: 10px;
+            background-color: aliceblue;
+          "
+        >
+          <h4 style="align-self: flex-start">Venue_01</h4>
+          <div
+            class="mt-2 p-2 d-flex flex-column justify-content-evenly"
+            style="
+              height: 200px;
+              width: 230px;
+              border: cornflowerblue solid 1px;
+              background-color: white;
+            "
+          >
+            <h5 style="align-self: flex-start">Show_01</h5>
+            <button class="btn btn-primary">Book</button>
+          </div>
+        </div>
+        <div
+          class="d-flex flex-column align-items-center justify-content-around m-3 p-2 overflow-auto"
+          style="
+            height: 40vh;
+            width: 97vw;
+            border: blue solid 2px;
+            border-radius: 10px;
+            background-color: aliceblue;
+          "
+        >
+          <h4 style="align-self: flex-start">Venue_01</h4>
+          <div
+            class="mt-2 p-2 d-flex flex-column justify-content-evenly"
+            style="
+              height: 200px;
+              width: 230px;
+              border: cornflowerblue solid 1px;
+              background-color: white;
+            "
+          >
+            <h5 style="align-self: flex-start">Show_01</h5>
+            <button class="btn btn-primary">Book</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
