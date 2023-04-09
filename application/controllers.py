@@ -4,6 +4,7 @@ from flask import current_app as app
 from application.models import *
 from flask_login import login_user, logout_user, login_required , current_user 
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy import or_
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -57,6 +58,11 @@ def logout():
 @app.route('/dashboard', methods=['GET'])
 @login_required
 def dashboard():
+    search_keyword=request.args.get('s')
+    if search_keyword:
+         shows = Show.query.filter(or_(Show.rating.ilike(f"%{search_keyword}%"),Show.name.ilike(f"%{search_keyword}%"), Show.tags.ilike(f"%{search_keyword}%"))).all()
+         return render_template('search_result.html',search_keyword=search_keyword,shows=shows)
+
     if current_user.type==1:
      venue = Venue.query.filter_by()
      return render_template('user_dashboard.html',venue=venue)

@@ -29,7 +29,7 @@
       <!-- navbar -->
       <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-primary p-2">
         <div class="order-0">
-          <a class="navbar-brand" href="#">{{current_user.name}}'s Dashboard</a>
+          <a class="navbar-brand" href="dashboard">{{current_user.name}}'s Dashboard</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -53,14 +53,41 @@
           </ul>
           <form class="form-inline" method="Get" action="dashboard">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" name="s" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
-        
       </nav>
-
-{% for v in venue%}
-      {% include './forms/allShows.html' %}
+<H1>Search Result for {{search_keyword}}</H1>
+{% for s in shows%}
+      <div
+        class="card m-2"
+        style="
+          background-image: url('./static/img/movie_thumb.jpg');
+          background-size: contain;
+          color: aliceblue;
+          height: 220px;
+          width: 230px;
+        "
+      >
+        <div class="card-body">
+          <h5 class="card-title">{{s.name}}</h5>
+          <p class="card-text">
+            <span><b>Timing-</b>{{s.start_time}} - {{s.end_time}}</span>
+            <span><b>, Price-</b>{{s.price}}</span>
+            <span><b>, Tags-</b>{{s.tags}}</span>
+            <span><b>, Rating-</b>{{s.rating}}</span>
+          </p>
+          <button class="btn btn-primary btn-block btn-lg"
+          
+          data-bs-toggle="modal"
+          data-bs-target={{"#bookshow_"+s.show_id|string}}
+          role="button"
+          
+          >Book</button>
+        </div>
+      </div>
+      
+{% include './forms/bookshow.html' %}
       {% endfor %}
       <script>
         function totalPrice(e) {
