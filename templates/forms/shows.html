@@ -1,0 +1,37 @@
+<div
+            class="card mt-2 "
+            style="
+              background-image: url('./static/img/movie_thumb.jpg');
+              background-size: contain;
+              color: aliceblue;
+              background-blend-mode:darken;
+            "
+          >
+            <div class="card-body">
+              <h5 class="card-title">{{s.name}}</h5>
+              <p class="card-text">
+                <span><b>Timing-</b>{{s.start_time}} - {{s.start_time}}</span>
+                <span><b>, Price-</b>{{s.price}}</span>
+                <span><b>, Tags-</b>{{s.tags}}</span>
+                <span><b>, Rating-</b>{{s.rating}}</span>
+              </p>
+              <div class="dropdown show">
+                <a
+                  class="btn btn-primary dropdown-toggle d-block"
+                  href="#"
+                  role="button"
+                  id="dropdownMenuLink"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Edit
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="#">Update Show</a>
+                  <a class="dropdown-item" href="#">Delete Show</a>
+                </div>
+              </div>
+            </div>
+          </div>

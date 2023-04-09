@@ -1,0 +1,46 @@
+<div
+  class="d-flex flex-column align-items-center justify-content-evenly m-1"
+  style="flex: 1 1 auto; flex-wrap: wrap"
+>
+  <div
+    class="d-flex flex-column align-items-center justify-content-around m-3 p-2 overflow-auto"
+    style="
+      width: 97vw;
+      border: blue solid 2px;
+      border-radius: 10px;
+      background-color: aliceblue;
+      flex-wrap: wrap;
+    "
+  >
+    <h4 style="align-self: flex-start">{{v.name}}</h4>
+    <div
+      class="d-flex flex-row align-items-center justify-content-around overflow-auto"
+      style="flex-wrap: wrap"
+    >
+      {% for s in v.shows%}
+      <div
+        class="card mt-2"
+        style="
+          background-image: url('./static/img/movie_thumb.jpg');
+          background-size: contain;
+          color: aliceblue;
+          height: 220px;
+          width: 230px;
+        "
+      >
+        <div class="card-body">
+          <h5 class="card-title">{{s.name}}</h5>
+          <p class="card-text">
+            <span><b>Timing-</b>{{s.timing}}</span>
+            <span><b>, Price-</b>{{s.price}}</span>
+            <span><b>, Tags-</b>{{s.tags}}</span>
+            <span><b>, Rating-</b>{{s.rating}}</span>
+          </p>
+          <button class="btn btn-primary btn-block btn-lg">Book</button>
+        </div>
+      </div>
+      {% endfor %}
+   
+    </div>
+  </div>
+</div>

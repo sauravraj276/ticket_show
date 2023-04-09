@@ -1,0 +1,93 @@
+<div
+class="modal"
+id={{"editvenue_"+v.name}}
+tabindex="-1"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">
+        Edit Venue
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form
+        class="p-4 d-flex flex-column justify-content-around"
+        action="addVenue"
+        method="POST"
+      >
+        <div class="mb-3">
+          <label for="venue_name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="venue_name"
+            name="venue_name"
+            value={{v.name}}
+          />
+          <input
+            type="number"
+            class="form-control"
+            id="venue_name"
+            name="update"
+            value="1"
+            hidden
+          />
+        </div>
+        <div class="mb-3">
+          <label for="venue_place" class="form-label">Place</label>
+          <input
+            type="text"
+            class="form-control"
+            id="venue_place"
+            name="venue_place"
+            value={{v.place}}
+          />
+        </div>
+        <div class="mb-3">
+          <label for="venue_location" class="form-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="venue_location"
+            name="venue_location"
+            value={{v.location}}
+          />
+        </div>
+        <div class="mb-3">
+          <label for="venue_capacity" class="form-label">Capacity</label>
+          <input
+            type="number"
+            class="form-control"
+            id="venue_capacity"
+            name="venue_capacity"
+            value={{v.capacity}}
+          />
+          <input
+            type="number"
+            class="form-control"
+            id="venue_id"
+            name="venue_id"
+            value={{v.venue_id}}
+            hidden
+     
+          />
+        </div>
+        <div class="d-flex justify-content-around">
+          <button type="submit" class="btn btn-warning w-100 m-2">
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

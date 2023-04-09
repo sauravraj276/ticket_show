@@ -1,0 +1,46 @@
+        
+        <div
+        class="d-flex flex-column align-items-center justify-content-around m-3 p-2 overflow-auto shadow-lg"
+        style="
+          height: 80vh;
+          width: 280px;
+          border: blue solid 2px;
+          border-radius: 10px;
+          background-color: aliceblue;
+        "
+      >
+        <h4 style="align-self: flex-start">{{v.name}}</h4>
+        <div class="d-flex flex-column overflow-auto h-75 mb-3">
+          {% for s in v.shows|reverse %}
+            {% include './forms/shows.html' %}
+          {% endfor %}
+         
+        </div>
+        <img
+          src="./static/img/Add_logo.svg"
+          height="50px"
+          width="50px"
+          color="blue"
+          data-bs-toggle="modal"
+          data-bs-target={{"#showform_"+v.name}}
+          role="button"
+          class="hover-zoom"
+        />
+        <div class="d-flex justify-content-around">
+          <button class="btn btn-warning w-100 m-2"
+          data-bs-toggle="modal"
+          data-bs-target={{"#editvenue_"+v.name}}
+          >Edit</button>
+          <button class="btn btn-danger w-100 m-2"
+          data-bs-toggle="modal"
+          data-bs-target={{"#deletevenue_"+v.name}}
+          >Delete</button>
+        </div>
+<!-- Modal To add Show -->
+{% include './forms/addShow.html' %}
+<!-- Modal To Edit Venue -->
+{% include './forms/editVenue.html' %}
+<!-- Model to delete Venue -->
+{% include './forms/deleteVenue.html' %}
+
+</div>
