@@ -1,5 +1,17 @@
 from .database import db
 
+
+
+class Bookings(db.Model):
+    __tablename__ = 'bookings'
+    booking_id = db.Column(db.Integer, autoincrement=True, primary_key=True, nullable=False)
+    user_id=db.Column(db.Integer, db.ForeignKey('user.user_id'),
+        nullable=False)
+    show_id=db.Column(db.Integer, db.ForeignKey('show.show_id'),
+        nullable=False)
+    number=db.Column(db.Integer,nullable=False)
+    total=db.Column(db.Integer,nullable=False)
+
 class User(db.Model):
     __tablename__ = 'user'
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True, nullable=False)
@@ -29,6 +41,7 @@ class Show(db.Model):
     end_time=db.Column(db.Integer)
     tags = db.Column(db.String)
     price = db.Column(db.Integer, nullable=False)
+    seats=db.Column(db.Integer,nullable=False)
     venue_id = db.Column(db.Integer, db.ForeignKey('venue.venue_id'),
         nullable=False)
 
@@ -41,4 +54,6 @@ class Venue(db.Model):
     location = db.Column(db.String, nullable=False)
     admin_id=db.Column(db.Integer, nullable=False)
     shows = db.relationship('Show', backref='venue', lazy=True, cascade="all, delete-orphan")
+
+
 

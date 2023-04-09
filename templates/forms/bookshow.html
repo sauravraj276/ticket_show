@@ -1,0 +1,89 @@
+<div
+class="modal"
+id={{"bookshow_"+s.show_id|string}}
+tabindex="-1"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">
+        Booking show "<span style="color:blue">{{v.name}}</span>"-"<span style="color:blue">{{s.name}}</span>"
+        <br>Time : {{s.start_time}}-{{s.end_time}}
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form
+        class="p-4 d-flex flex-column justify-content-around"
+        action="bookshow"
+        method="POST"
+      >
+      <div class="mb-3">
+        <label for="seats" class="form-label">Available seats</label>
+        <input
+          type="number"
+          class="form-control"
+          id="seats"
+          value={{s.seats}}
+          readonly
+        />
+      </div>
+      <div class="mb-3">
+        <label for="number" class="form-label">Number</label>
+        <input
+          type="number"
+          class="form-control"
+          id={{"booknumber"+s.show_id|string}}
+          max={{s.seats}}
+          min=1
+          onkeyup="totalPrice(this)"
+          name="number"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input
+          type="number"
+          class="form-control"
+          id={{"bookprice"+s.show_id|string}}
+          value={{s.price}}
+          readonly
+          name="price"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="Total" class="form-label">Total</label>
+        <input
+          type="number"
+          class="form-control"
+          id={{"booktotal"+s.show_id|string}}
+          name="total"
+          readonly
+        />
+      </div>
+          <input
+            type="number"
+            class="form-control"
+            id="show_id"
+            name="show_id"
+            value={{s.show_id}}
+            hidden
+     
+          />
+        
+          <button type="submit" class="btn btn-success w-100 m-2">
+            Confirm booking
+          </button>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

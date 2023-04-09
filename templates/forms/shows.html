@@ -29,9 +29,14 @@
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">Update Show</a>
-                  <a class="dropdown-item" href="#">Delete Show</a>
+                  <a class="dropdown-item"  data-bs-toggle="modal"
+                  data-bs-target={{"#editshow_"+s.show_id|string}} role="button">Update Show</a>
+                  <a class="dropdown-item"  data-bs-toggle="modal"
+                  data-bs-target={{"#deleteshow_"+s.show_id|string}} role="button">Delete Show</a>
                 </div>
               </div>
             </div>
           </div>
+   
+{% include './forms/deleteShow.html' %}
+{% include './forms/editShow.html' %}

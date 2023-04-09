@@ -1,0 +1,43 @@
+<div
+class="modal"
+id={{"deleteshow_"+s.show_id|string}}
+tabindex="-1"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">
+        Confirm to delete "<span style="color:blue">{{s.name}}</span>"
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form
+        class="p-4 d-flex flex-column justify-content-around"
+        action="deleteshow"
+        method="POST"
+      >
+          <input
+            type="number"
+            class="form-control"
+            name="show_id"
+            value={{s.show_id}}
+            hidden
+     
+          />
+        
+          <button type="submit" class="btn btn-danger w-100 m-2">
+            DELETE Show and all its bookings
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -19,7 +19,7 @@
     >
       {% for s in v.shows%}
       <div
-        class="card mt-2"
+        class="card m-2"
         style="
           background-image: url('./static/img/movie_thumb.jpg');
           background-size: contain;
@@ -31,14 +31,22 @@
         <div class="card-body">
           <h5 class="card-title">{{s.name}}</h5>
           <p class="card-text">
-            <span><b>Timing-</b>{{s.timing}}</span>
+            <span><b>Timing-</b>{{s.start_time}} - {{s.end_time}}</span>
             <span><b>, Price-</b>{{s.price}}</span>
             <span><b>, Tags-</b>{{s.tags}}</span>
             <span><b>, Rating-</b>{{s.rating}}</span>
           </p>
-          <button class="btn btn-primary btn-block btn-lg">Book</button>
+          <button class="btn btn-primary btn-block btn-lg"
+          
+          data-bs-toggle="modal"
+          data-bs-target={{"#bookshow_"+s.show_id|string}}
+          role="button"
+          
+          >Book</button>
         </div>
       </div>
+      
+{% include './forms/bookshow.html' %}
       {% endfor %}
    
     </div>

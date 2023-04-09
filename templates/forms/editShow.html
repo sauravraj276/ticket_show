@@ -1,6 +1,6 @@
 <div
 class="modal"
-id={{"showform_"+v.name}}
+id={{"editshow_"+s.show_id|string}}
 tabindex="-1"
 aria-labelledby="exampleModalLabel"
 aria-hidden="true"
@@ -9,7 +9,7 @@ aria-hidden="true"
   <div class="modal-content">
     <div class="modal-header">
       <h5 class="modal-title" id="exampleModalLabel">
-        Creating a new Show for "<span style="color:blue">{{v.name}}</span>" venue
+        Edit show details of "<span style="color:blue">{{s.name}}</span>"
       </h5>
       <button
         type="button"
@@ -31,6 +31,7 @@ aria-hidden="true"
             class="form-control"
             id="show_name"
             name="show_name"
+            value="{{s.name}}"
           />
         </div>
         <div class="mb-3">
@@ -40,6 +41,7 @@ aria-hidden="true"
             class="form-control"
             id="show_rating"
             name="show_rating"
+            value="{{s.rating}}"
           />
         </div>
         <div class="mb-3">
@@ -49,6 +51,7 @@ aria-hidden="true"
             class="form-control"
             id="start_time"
             name="start_time"
+            value="{{s.start_time}}"
           />
           <label for="show_timing" class="form-label">Show End Time</label>
           <input
@@ -56,6 +59,7 @@ aria-hidden="true"
             class="form-control"
             id="end_time"
             name="end_time"
+            value="{{s.end_time}}"
           />
         </div>
         <div class="mb-3">
@@ -65,6 +69,7 @@ aria-hidden="true"
             class="form-control"
             id="show_tags"
             name="show_tags"
+            value="{{s.tags}}"
           />
         </div>
         <div class="mb-3">
@@ -74,45 +79,28 @@ aria-hidden="true"
             class="form-control"
             id="show_price"
             name="show_price"
+            value="{{s.price}}"
           />
-          <input
-            type="number"
-            class="form-control"
-            id="venue_id"
-            name="venue_id"
-            value={{v.venue_id}}
-            hidden
-          />
-          <input
-            type="number"
-            class="form-control"
-            id="venue_id"
-            name="seats"
-            value={{v.capacity}}
-            hidden
-          />
+          
+          
           <input
           type="number"
             class="form-control"
             id="venue_name"
             name="update"
-            value="0"
+            value="1"
+            hidden>
+          <input
+          type="number"
+            class="form-control"
+            name="show_id"
+            value="{{s.show_id}}"
             hidden>
         </div>
-        <!-- <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label"
-            >Password</label
-          >
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-            name="password"
-          />
-        </div> -->
+        
         <div class="d-flex justify-content-around">
-          <button type="submit" class="btn btn-success w-100 m-2">
-            SAVE
+          <button type="submit" class="btn btn-warning w-100 m-2">
+            Update show details
           </button>
         </div>
       </form>

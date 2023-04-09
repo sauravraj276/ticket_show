@@ -18,6 +18,10 @@
       type="text/javascript"
       src="{{ url_for('static', filename='js/custom_validations.js') }}"
     ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"
+    ></script>
     <title>User_dashboard</title>
   </head>
   <body>
@@ -53,6 +57,19 @@
 {% for v in venue%}
       {% include './forms/allShows.html' %}
       {% endfor %}
+      <script>
+        function totalPrice(e) {
+        if(e.value>0){
+        var number = e.value;
+        var price = e.parentElement.nextElementSibling.querySelector("input").value
+        var total = parseInt(number) * parseInt(price);
+        e.parentElement.nextElementSibling.nextElementSibling.querySelector("input").value=total;
+        }}
+
+
+
+
+      </script>
     </div>
   </body>
 </html>
